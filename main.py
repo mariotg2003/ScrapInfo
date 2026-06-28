@@ -29,7 +29,6 @@ if __name__ == "__main__":
 
         for element_objects in dic_objets:
 
-            print("Objeto ", element_objects['name'])
             element_name = element_objects['name']
             element_link = element_objects['link']
             element_price = element_objects['price']

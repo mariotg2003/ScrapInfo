@@ -8,8 +8,8 @@ def send_email(execution_type):
 
     # Credenciales
     load_dotenv()
-    gmail = os.getenv("gmail")
-    password = os.getenv("password")
+    gmail = os.getenv("GMAIL")
+    password = os.getenv("PASSWORD")
     date = datetime.now()
 
     # Convertir mes
