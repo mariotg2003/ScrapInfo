@@ -12,4 +12,7 @@ def get_html_body(url: str):
 
         soup = BeautifulSoup(htmlBody, "html.parser")
 
+    else:
+        print(response.status_code)
+
     return soup
