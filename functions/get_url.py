@@ -3,20 +3,26 @@ from bs4 import BeautifulSoup
 
 def get_html_body(url: str):
 
-    scraper = cloudscraper.create_scraper(browser={
-            'browser': 'chrome',
-            'platform': 'windows',
-            'desktop': True
-        })
-    response = scraper.get(url)
+    soup = None
 
-    if response.status_code == 200:
+    scraper = cloudscraper.create_scraper(
+            delay=10,  # Espera un poco por si hay protecciones de Cloudflare
+            browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True}
+        )
+    
+    try: 
+        response = scraper.get(url, timeout=30)
 
-        htmlBody = response.text
+        if response.status_code == 200:
 
-        soup = BeautifulSoup(htmlBody, "html.parser")
+            htmlBody = response.text
 
-    else:
-        print(response.status_code)
+            soup = BeautifulSoup(htmlBody, "html.parser")
+
+        else:
+            print(response.status_code)
+            
+    except Exception as e:
+        print(e)
 
     return soup
