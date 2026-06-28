@@ -1,7 +1,7 @@
 import cloudscraper
 from bs4 import BeautifulSoup
 
-def get_html_body(url: string):
+def get_html_body(url: str):
 
     scraper = cloudscraper.create_scraper()
     response = scraper.get(url)
