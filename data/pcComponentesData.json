@@ -1,0 +1,17 @@
+{
+    "paginas": {
+        "tarjetas": {"url": "https://www.pccomponentes.com/ofertas-especiales/tarjetas-graficas"},
+        "ram": {"url": "https://www.pccomponentes.com/ofertas-especiales/memorias-ram"},
+        "disco_duro": {"url": "https://www.pccomponentes.com/ofertas-especiales/discos-duros"},
+        "monitores": {"url": "https://www.pccomponentes.com/ofertas-especiales/monitores-pc"},
+        "teclados": {"url": "https://www.pccomponentes.com/ofertas-especiales/teclados"},
+        "sillas": {"url": "https://www.pccomponentes.com/ofertas-especiales/sillas"},
+        "ratones": {"url": "https://www.pccomponentes.com/ofertas-especiales/ratones"},
+        "auriculares": {"url": "https://www.pccomponentes.com/ofertas-especiales/auriculares"}
+    },
+    "clases_objetos": {
+        "div_class_general": "gridContainer-TlqzaV",
+        "div_objetos": "wrapper-s5NDOZ notDecorated-c4Wiyi link-O9JV8C",
+        "divImagenes": "imageContainer-Odn8PL"
+    }
+}
