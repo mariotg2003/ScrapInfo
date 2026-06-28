@@ -11,6 +11,9 @@ def get_html_body(url: str):
         )
     
     try: 
+
+        scraper.get("https://www.pccomponentes.com/")
+
         response = scraper.get(url, timeout=30)
 
         if response.status_code == 200:
@@ -21,7 +24,7 @@ def get_html_body(url: str):
 
         else:
             print(response.status_code)
-            
+
     except Exception as e:
         print(e)
 
