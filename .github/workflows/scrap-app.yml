@@ -33,5 +33,6 @@ jobs:
         GMAIL: ${{ secrets.GMAIL }}
         PASSWORD: ${{ secrets.PASSWORD }}
         DATABASE_URL : ${{ secrets.DATABASE_URL }}
+        API_KEY : $ {{ secrets.API_KEY}}
       run: |
         python main.py

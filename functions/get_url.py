@@ -7,7 +7,7 @@ def get_html_body(target_url: str):
     soup = None
     
     # 1. Recuperamos la API KEY desde las variables de entorno (GitHub Secrets)
-    api_key = os.getenv("api_key")
+    api_key = os.getenv("API_KEY")
     
     # 2. Configuración para ZenRows
     proxy_url = "https://api.zenrows.com/v1/"
