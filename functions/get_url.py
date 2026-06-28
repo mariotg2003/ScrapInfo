@@ -3,7 +3,11 @@ from bs4 import BeautifulSoup
 
 def get_html_body(url: str):
 
-    scraper = cloudscraper.create_scraper()
+    scraper = cloudscraper.create_scraper(browser={
+            'browser': 'chrome',
+            'platform': 'windows',
+            'desktop': True
+        })
     response = scraper.get(url)
 
     if response.status_code == 200:
