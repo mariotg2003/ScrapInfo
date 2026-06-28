@@ -6,7 +6,7 @@ import os
 def get_html_body(target_url: str):
     soup = None
     
-    api_key = os.getenv("API_KEY")
+    api_key = os.getenv("API_KEY").strip() if os.getenv("API_KEY") else None
     # 2. Configuración para ZenRows
     proxy_url = "https://api.zenrows.com/v1/"
     params = {
