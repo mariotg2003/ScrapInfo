@@ -18,7 +18,6 @@ def get_html_body(target_url: str):
     
     try:
         # 3. Hacemos la petición a través de ZenRows, no directo a la web
-        print(f"Solicitando datos a ZenRows para: {target_url}")
         response = requests.get(proxy_url, params=params, timeout=60)
         
         if response.status_code == 200:

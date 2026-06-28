@@ -43,5 +43,6 @@ if __name__ == "__main__":
 
     if execution : 
         send_email("Exitosa")
+        print("OK")
     else:
         send_email("Fallida")
