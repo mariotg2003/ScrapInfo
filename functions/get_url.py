@@ -1,31 +1,35 @@
-import cloudscraper
+import requests
 from bs4 import BeautifulSoup
+import os
 
-def get_html_body(url: str):
 
+def get_html_body(target_url: str):
     soup = None
-
-    scraper = cloudscraper.create_scraper(
-            delay=10,  # Espera un poco por si hay protecciones de Cloudflare
-            browser={'browser': 'chrome', 'platform': 'windows', 'desktop': True}
-        )
     
-    try: 
-
-        scraper.get("https://www.pccomponentes.com/")
-
-        response = scraper.get(url, timeout=30)
-
+    # 1. Recuperamos la API KEY desde las variables de entorno (GitHub Secrets)
+    api_key = os.getenv("api_key")
+    
+    # 2. Configuración para ZenRows
+    proxy_url = "https://api.zenrows.com/v1/"
+    params = {
+        'url': target_url,
+        'apikey': api_key,
+        'js_render': 'true',         # Renderiza JavaScript (necesario para PcComponentes)
+        'premium_proxy': 'true'      # Usa IPs residenciales para evitar el 403
+    }
+    
+    try:
+        # 3. Hacemos la petición a través de ZenRows, no directo a la web
+        print(f"Solicitando datos a ZenRows para: {target_url}")
+        response = requests.get(proxy_url, params=params, timeout=60)
+        
         if response.status_code == 200:
-
-            htmlBody = response.text
-
-            soup = BeautifulSoup(htmlBody, "html.parser")
-
+            soup = BeautifulSoup(response.text, "html.parser")
         else:
-            print(response.status_code)
-
+            print(f"Error de la API: {response.status_code}")
+            print(f"Respuesta: {response.text}")
+            
     except Exception as e:
-        print(e)
-
+        print(f"Error al conectar con el proxy: {e}")
+        
     return soup
