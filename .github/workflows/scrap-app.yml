@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ "main" ]
   schedule:
-    - cron: '0 10 * * *'
+    - cron: '0 0 1,2,4,6,8,10,12,14,16,18,20,22,24,26,28 * *'
   workflow_dispatch:
 
 jobs:
@@ -38,6 +38,5 @@ jobs:
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
         API_KEY: ${{ secrets.API_KEY }}
         SCRAPE_TOKEN: ${{ secrets.SCRAPE_TOKEN }}
-        SCRAPE_DO_API_KEY: ${{ secrets.SCRAPE_TOKEN }}
       run: |
         python main.py
