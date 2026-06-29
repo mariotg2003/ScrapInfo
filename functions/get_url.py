@@ -22,6 +22,7 @@ def get_html_body(target_url: str):
         "render": "true",
         "wait": 5000,
         "premium_proxy": "true",
+        "super": "true"
     }
 
     try:
