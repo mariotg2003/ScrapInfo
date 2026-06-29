@@ -1,6 +1,9 @@
 import os
 import requests
 from bs4 import BeautifulSoup
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 def get_html_body(target_url: str):
@@ -9,11 +12,13 @@ def get_html_body(target_url: str):
     api_key = (
         os.getenv("SCRAPE_DO_API_KEY")
         or os.getenv("SCRAPE_DO_TOKEN")
+        or os.getenv("SCRAPE_TOKEN")
         or os.getenv("API_KEY")
+        or os.getenv("api_key")
     )
 
     if not api_key:
-        print("No se encontró la API key de Scrape.do")
+        print("No se encontró un token válido de Scrape.do")
         return None
 
     proxy_url = "https://api.scrape.do"

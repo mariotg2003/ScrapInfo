@@ -35,8 +35,9 @@ jobs:
       env:
         GMAIL: ${{ secrets.GMAIL }}
         PASSWORD: ${{ secrets.PASSWORD }}
-        DATABASE_URL : ${{ secrets.DATABASE_URL }}
-        API_KEY : ${{ secrets.API_KEY}}
-        SCRAPE_TOKEN : ${{ secrets.SCRAPE_TOKEN}}
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        API_KEY: ${{ secrets.API_KEY }}
+        SCRAPE_TOKEN: ${{ secrets.SCRAPE_TOKEN }}
+        SCRAPE_DO_API_KEY: ${{ secrets.SCRAPE_TOKEN }}
       run: |
         python main.py
