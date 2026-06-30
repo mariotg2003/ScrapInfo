@@ -9,12 +9,16 @@ from functions.create_json import write_json
 from functions.insert_data import insert_data
 from functions.delete_data import delete_data
 from functions.send_email import send_email
+from functions.create_engine import create_engine
 
 
 if __name__ == "__main__":
 
+    # Crear engine y tabla
+    engine, table = create_engine()
+
     # Borrado de tablas
-    delete_data()
+    delete_data(engine,table)
 
     # Leer JSON
     params_exe = get_info("pcComponentesData")
@@ -35,7 +39,7 @@ if __name__ == "__main__":
             element_type = element_objects['type']
 
             try:
-                insert_data(element_name,element_link,element_price,element_type)
+                insert_data(element_name,element_link,element_price,element_type, engine, table)
                 execution = True
             except Exception as e:
                 execution = False
