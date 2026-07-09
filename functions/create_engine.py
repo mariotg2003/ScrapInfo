@@ -1,6 +1,7 @@
 from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, Float, DateTime
 from datetime import datetime
 from dotenv import load_dotenv
+import os
 
 def create_engine():
 
