@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, Float, DateTime
+from sqlalchemy import create_engine as sqlalchemy_create_engine, MetaData, Table, Column, Integer, String, Float, DateTime
 from datetime import datetime
 from dotenv import load_dotenv
 import os
@@ -9,7 +9,7 @@ def create_engine():
 
     url = os.getenv("DATABASE_URL")
 
-    engine = create_engine(os.getenv("DATABASE_URL"), connect_args={"options": "-c client_encoding=utf8"})
+    engine = sqlalchemy_create_engine(url, connect_args={"options": "-c client_encoding=utf8"})
     metadata = MetaData()
 
 
