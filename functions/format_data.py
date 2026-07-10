@@ -7,6 +7,8 @@ def parser_data(htmlBody, type, params):
 
     div_principal = clases["div_class_general"]
     div_objeto = clases["div_objetos"]
+    div_imagenes = clases["div_imagenes"]
+    div_src = clases["div_src"]
 
     diccionarioObjetos = []
 
@@ -16,6 +18,11 @@ def parser_data(htmlBody, type, params):
 
     for element in productos:
 
+        div_img = element.find("div", class_=div_imagenes) 
+        img_source = div_img.find("div", class_=div_src)
+        img_tag = img_source.find("img")
+
+        img = img_tag.get("src")
         titulo = element.get("data-product-name")
         enlace = element.get("href")
         precio = element.get("data-product-price")
@@ -24,7 +31,8 @@ def parser_data(htmlBody, type, params):
             "name" : titulo,
             "link" : enlace,
             "price" : precio,
-            "type" : type
+            "type" : type,
+            "img" : img
         }
 
 

@@ -3,7 +3,7 @@ def clean_data(text):
     return str(text).encode('utf-8','replace').decode('utf-8')
 
 
-def insert_data(name, link, price, type, engine, table):
+def insert_data(name, link, price, type, img, engine, table):
     with engine.connect() as conn:
 
         name = clean_data(name)
@@ -13,7 +13,8 @@ def insert_data(name, link, price, type, engine, table):
             product_name = name,
             product_link = link,
             product_price = price,
-            product_type = type
+            product_type = type,
+            product_img = img
         )
 
         conn.execute(query)

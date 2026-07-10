@@ -1,3 +1,4 @@
 /.env
 /.venv
 /.execution_local
+execution_local/
