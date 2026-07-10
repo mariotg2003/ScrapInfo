@@ -37,9 +37,10 @@ if __name__ == "__main__":
             element_link = element_objects['link']
             element_price = element_objects['price']
             element_type = element_objects['type']
+            element_img = element_objects['img']
 
             try:
-                insert_data(element_name,element_link,element_price,element_type, engine, table)
+                insert_data(element_name,element_link,element_price,element_type,element_img, engine, table)
                 execution = True
             except Exception as e:
                 execution = False
