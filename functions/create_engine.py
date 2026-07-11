@@ -20,7 +20,8 @@ def create_engine():
         Column('product_link', String),
         Column('product_price', String),
         Column('product_type', String),
-        Column('product_img', String)       
+        Column('product_img', String),
+        Column('product_old_price', String)
     )
 
     return engine, products
