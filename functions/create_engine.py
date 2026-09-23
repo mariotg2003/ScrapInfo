@@ -9,7 +9,14 @@ def create_engine():
 
     url = os.getenv("DATABASE_URL")
 
-    engine = sqlalchemy_create_engine(url, connect_args={"options": "-c client_encoding=utf8"})
+    # pool_pre_ping revalida la conexión antes de usarla y reconecta si el servidor la cerró (SSL EOF)
+    # pool_recycle recicla conexiones antes de que el servidor las cierre por inactividad
+    engine = sqlalchemy_create_engine(
+        url,
+        connect_args={"options": "-c client_encoding=utf8"},
+        pool_pre_ping=True,
+        pool_recycle=280,
+    )
     metadata = MetaData()
 
 
