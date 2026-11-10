@@ -1,4 +1,5 @@
 from bs4 import BeautifulSoup
+import pytest
 
 from functions.format_data import parser_data
 
@@ -14,6 +15,7 @@ def test_parser_data_extracts_product_fields_and_optional_old_price():
           <a class="product" data-product-name="CPU" data-product-price="199.99" href="/cpu">
             <div class="images"><div class="source"><img src="/cpu.jpg"></div></div>
           </a>
+          <a class="navigation" href="/other">Other</a>
         </div>
         """,
         "html.parser",
@@ -49,3 +51,18 @@ def test_parser_data_extracts_product_fields_and_optional_old_price():
             "old_price": None,
         },
     ]
+
+
+def test_parser_reports_missing_product_container():
+    html = BeautifulSoup("<div>Sin productos</div>", "html.parser")
+    params = {"clases_objetos": {
+        "div_class_general": "products",
+        "div_objetos": "product",
+        "div_imagenes": "images",
+        "div_src": "source",
+        "div_precio": "price",
+        "div_descuento": "discount",
+    }}
+
+    with pytest.raises(ValueError, match="contenedor de productos para monitores: products"):
+        parser_data(html, "monitores", params)
