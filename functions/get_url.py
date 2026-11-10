@@ -38,3 +38,19 @@ def get_html_body(target_url: str):
         print(f"Error al conectar con Scrape.do: {e}")
 
     return soup
+
+
+def get_html_body_with_fallback(target_url: str, fallback_url: str = ""):
+    urls = [target_url]
+    if fallback_url.strip():
+        urls.append(fallback_url.strip())
+
+    for index, url in enumerate(urls):
+        tipo_url = "principal" if index == 0 else "de respaldo"
+        print(f"Intentando URL {tipo_url}: {url}")
+        soup = get_html_body(url)
+        if soup is not None:
+            print(f"HTML obtenido correctamente desde URL {tipo_url}: {url}")
+            return soup
+
+    raise RuntimeError("No se pudo obtener HTML de ninguna URL.")

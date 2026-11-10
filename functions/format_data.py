@@ -15,8 +15,10 @@ def parser_data(htmlBody, type, params):
     diccionarioObjetos = []
 
     divObjetos = htmlBody.find("div", class_=div_principal)
-    
-    productos = divObjetos.select("a", class_=div_objeto)
+    if divObjetos is None:
+        raise ValueError(f"No se encontró el contenedor de productos para {type}: {div_principal}")
+
+    productos = divObjetos.find_all("a", class_=div_objeto)
 
     for element in productos:
 

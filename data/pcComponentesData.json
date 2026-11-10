@@ -1,13 +1,13 @@
 {
     "paginas": {
-        "tarjetas": {"url": "https://www.pccomponentes.com/ofertas-especiales/tarjetas-graficas"},
-        "ram": {"url": "https://www.pccomponentes.com/ofertas-especiales/memorias-ram"},
-        "disco_duro": {"url": "https://www.pccomponentes.com/ofertas-especiales/discos-duros"},
-        "monitores": {"url": "https://www.pccomponentes.com/ofertas-especiales/monitores-pc"},
-        "teclados": {"url": "https://www.pccomponentes.com/ofertas-especiales/teclados"},
-        "sillas": {"url": "https://www.pccomponentes.com/ofertas-especiales/sillas"},
-        "ratones": {"url": "https://www.pccomponentes.com/ofertas-especiales/ratones"},
-        "auriculares": {"url": "https://www.pccomponentes.com/ofertas-especiales/auriculares"}
+        "tarjetas": {"url": "https://www.pccomponentes.com/ofertas-especiales/tarjetas-graficas", "url_respaldo": "https://www.pccomponentes.com/categorias/componentes?categoryId[]=tarjetas-graficas"},
+        "ram": {"url": "https://www.pccomponentes.com/ofertas-especiales/memorias-ram", "url_respaldo": "https://www.pccomponentes.com/categorias/componentes?categoryId[]=memorias-ram"},
+        "disco_duro": {"url": "https://www.pccomponentes.com/ofertas-especiales/discos-duros", "url_respaldo": "https://www.pccomponentes.com/categorias/componentes?categoryId[]=discos-duros"},
+        "monitores": {"url": "https://www.pccomponentes.com/ofertas-especiales/monitores-pc", "url_respaldo": "https://www.pccomponentes.com/categorias/monitores-pc"},
+        "teclados": {"url": "https://www.pccomponentes.com/ofertas-especiales/teclados", "url_respaldo": "https://www.pccomponentes.com/categorias/perifericos/universo-perifericos?categoryId[]=teclados"},
+        "sillas": {"url": "https://www.pccomponentes.com/ofertas-especiales/sillas", "url_respaldo": "https://www.pccomponentes.com/categorias/perifericos/universo-perifericos?categoryId[]=sillas"},
+        "ratones": {"url": "https://www.pccomponentes.com/ofertas-especiales/ratones", "url_respaldo": "https://www.pccomponentes.com/categorias/perifericos/universo-perifericos?categoryId[]=ratones"},
+        "auriculares": {"url": "https://www.pccomponentes.com/ofertas-especiales/auriculares", "url_respaldo": "https://www.pccomponentes.com/categorias/sonido?categoryId[]=auriculares"}
     },
     "clases_objetos": {
         "div_class_general": "gridContainer-TlqzaV",
