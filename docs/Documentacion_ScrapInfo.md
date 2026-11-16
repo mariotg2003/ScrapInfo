@@ -175,6 +175,7 @@ Base URL local: `http://localhost:8000`
 ### 9.2 `functions/get_url.py`
 - Llama a Scrape.do para obtener HTML renderizado.
 - Devuelve `BeautifulSoup` o `None` si falla.
+- `get_html_body_with_fallback` prueba la URL principal y, si falla, la URL de respaldo configurada. Si ninguna funciona, lanza un error.
 
 ### 9.3 `functions/format_data.py`
 - Aplica selectores CSS configurables.
@@ -198,6 +199,8 @@ El archivo `data/pcComponentesData.json` controla:
 
 - Categorias a scrapear (`paginas`) y sus URLs.
 - Selectores CSS (`clases_objetos`) del layout objetivo.
+
+Cada categoria puede incluir `url_respaldo`: dejala vacia para no usar respaldo o indica una URL alternativa. Se prueba solo si falla la descarga de la URL principal. El cuaderno local usa cloudscraper y el proceso principal utiliza Scrape.do.
 
 Si PCComponentes cambia su HTML/CSS, normalmente solo necesitas actualizar este archivo.
 

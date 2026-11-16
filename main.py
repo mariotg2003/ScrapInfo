@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 from typing import Optional
 
 
-from functions.get_url import get_html_body
+from functions.get_url import get_html_body_with_fallback
 from functions.format_data import parser_data
 from functions.read_params import get_info
 from functions.create_json import write_json
@@ -28,8 +28,10 @@ if __name__ == "__main__":
     for element in paginas:
 
         url = paginas[element]["url"]
-        body_html = get_html_body(url)
+        body_html = get_html_body_with_fallback(url, paginas[element].get("url_respaldo", ""))
         dic_objets = parser_data(body_html, element, params_exe)
+        if not dic_objets:
+            raise ValueError(f"No se encontraron productos para {element}. Revisa la URL y los selectores del HTML.")
 
         for element_objects in dic_objets:
 
